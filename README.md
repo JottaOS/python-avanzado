@@ -17,3 +17,9 @@ La estructura de las carpetas es la siguiente:
     └── recursos # Recursos proveídos por el profesor
         └── original.py
 ```
+
+## Ejecución
+Los scripts se ejecutan de la siguiente manera:
+```bash
+uv run python {filepath}
+```
