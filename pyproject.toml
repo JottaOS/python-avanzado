@@ -6,7 +6,12 @@ authors = [
     { name = "JottaOS", email = "juanmendozasfa@gmail.com" }
 ]
 requires-python = ">=3.12"
-dependencies = []
+dependencies = [
+    "matplotlib>=3.11.1",
+    "pandas>=3.0.5",
+    "pymysql>=1.2.0",
+    "sqlalchemy>=2.0.52",
+]
 
 [project.scripts]
 python-avanzado = "python_avanzado:main"

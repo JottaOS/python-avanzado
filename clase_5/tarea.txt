@@ -1,0 +1,22 @@
+Hacer el modelo de una tabla que contenga datos de sus interés (QUE NO SEAN PRODUCTOS). Dicha tabla debe tener al menos 6 atributos incluyendo:
+
+-Una clave primaria
+-Una descripción o nombre del objeto como str
+-Algún dato numérico
+-Algún dato cualitativo (fecha, categoría, autor, género, etc)
+
+Hacer todo el procedimiento para conectarse con SQLAlchemy ORM (Usar la sintaxis moderna 2.x). 
+Armar el engine, el declarative base y el modelo, luego crear las tablas
+
+Hacer consultas:
+
+Un insert que inserte datos de un archivo de datos con formato de su preferencia con al menos 10 filas
+Un select filtrado
+Un update donde se cambian varios atributos de varios elementos de la tabla
+Eliminar algún dato sin sentido
+
+Posteriormente cargar en un dataframe alguna consulta y hacer algún gráfico analítico del tipo de su preferencia
+
+Empaquetar todo en funciones que se ejecutan en un archivo main.py en el orden correcto, como se muestra en el ejemplo completo del Repositorio
+
+Entregar todo en un archivo .zip
