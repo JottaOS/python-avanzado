@@ -1,0 +1,75 @@
+-- 1. Crear la tabla de Productos (con columna de Categoría)
+CREATE TABLE productos (
+    producto_id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    categoria VARCHAR(50) NOT NULL,
+    descripcion TEXT,
+    precio DECIMAL(10, 2) NOT NULL CHECK (precio >= 0),
+    stock INT NOT NULL DEFAULT 0 CHECK (stock >= 0),
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB;
+
+-- 2. Crear la tabla de Pedidos
+CREATE TABLE pedidos (
+    pedido_id INT AUTO_INCREMENT PRIMARY KEY,
+    cliente_nombre VARCHAR(100) NOT NULL,
+    fecha_pedido DATETIME DEFAULT CURRENT_TIMESTAMP,
+    estado ENUM('pendiente', 'pagado', 'enviado', 'cancelado') DEFAULT 'pendiente'
+) ENGINE=InnoDB;
+
+-- 3. Crear la tabla de Detalles de Pedido (Relación N:M)
+CREATE TABLE detalles_pedido (
+    detalle_id INT AUTO_INCREMENT PRIMARY KEY,
+    pedido_id INT NOT NULL,
+    producto_id INT NOT NULL,
+    cantidad INT NOT NULL CHECK (cantidad > 0),
+    precio_unitario DECIMAL(10, 2) NOT NULL CHECK (precio_unitario >= 0),
+    CONSTRAINT fk_detalles_pedido FOREIGN KEY (pedido_id) 
+        REFERENCES pedidos(pedido_id) ON DELETE CASCADE,
+    CONSTRAINT fk_detalles_producto FOREIGN KEY (producto_id) 
+        REFERENCES productos(producto_id) ON DELETE RESTRICT
+) ENGINE=InnoDB;
+
+
+-- =========================================================
+-- INSERCIÓN DE DATOS DE PRUEBA (10 registros por tabla)
+-- =========================================================
+
+-- Inserción de 10 Productos con sus Categorías
+INSERT INTO productos (nombre, categoria, descripcion, precio, stock) VALUES
+('Teclado Mecánico RGB', 'Periféricos', 'Teclado switch azul retroiluminado', 49.99, 50),
+('Ratón Inalámbrico', 'Periféricos', 'Ratón óptico ergonómico 2.4GHz', 19.95, 120),
+('Monitor 24 pulgadas', 'Monitores', 'Pantalla Full HD IPS 75Hz', 129.99, 30),
+('Auriculares Gaming', 'Audio', 'Auriculares con micrófono y sonido 7.1', 35.50, 85),
+('Alfombrilla XL', 'Accesorios', 'Alfombrilla antideslizante 900x400mm', 12.00, 200),
+('Webcam 1080p', 'Periféricos', 'Cámara web HD con micrófono integrado', 29.90, 45),
+('Disco Duro SSD 1TB', 'Almacenamiento', 'Unidad de estado sólido NVMe M.2', 85.00, 60),
+('Memoria RAM 16GB', 'Componentes', 'Módulo DDR4 3200MHz', 45.00, 90),
+('Silla Gaming', 'Mobiliario', 'Silla ergonómica reclinable con cojines', 189.99, 15),
+('Hub USB-C', 'Accesorios', 'Adaptador multitoma 7 en 1 con HDMI', 22.50, 75);
+
+-- Inserción de 10 Pedidos
+INSERT INTO pedidos (cliente_nombre, estado) VALUES
+('Carlos Gómez', 'pagado'),
+('María Rodríguez', 'enviado'),
+('Juan Pérez', 'pendiente'),
+('Ana Martínez', 'pagado'),
+('Luis Fernández', 'cancelado'),
+('Elena Torres', 'enviado'),
+('Roberto Sánchez', 'pagado'),
+('Laura Díaz', 'pendiente'),
+('Diego Morales', 'pagado'),
+('Carmen Ruiz', 'enviado');
+
+-- Inserción de 10 Detalles de Pedido
+INSERT INTO detalles_pedido (pedido_id, producto_id, cantidad, precio_unitario) VALUES
+(1, 1, 1, 49.99),  -- Carlos compró 1 Teclado (Periféricos)
+(1, 2, 2, 19.95),  -- Carlos compró 2 Ratones (Periféricos)
+(2, 3, 1, 129.99), -- María compró 1 Monitor (Monitores)
+(3, 4, 1, 35.50),  -- Juan compró 1 Auriculares (Audio)
+(4, 7, 2, 85.00),  -- Ana compró 2 SSDs (Almacenamiento)
+(5, 5, 1, 12.00),  -- Luis compró 1 Alfombrilla (Accesorios)
+(6, 9, 1, 189.99), -- Elena compró 1 Silla (Mobiliario)
+(7, 8, 2, 45.00),  -- Roberto compró 2 Memorias RAM (Componentes)
+(8, 6, 1, 29.90),  -- Laura compró 1 Webcam (Periféricos)
+(9, 10, 3, 22.50); -- Diego compró 3 Hubs USB-C (Accesorios)

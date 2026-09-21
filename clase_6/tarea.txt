@@ -1,0 +1,11 @@
+Parte 1:
+
+Ejecutar la consulta sql en el archivo de texto dataset.txt dado en una nueva base de datos en su servidor local MariaDB
+Crear los objetos necesarios para mapear con sqlalchemy ORM solo las tablas necesarias para cada ejercicio
+Se pide ejecutar una consulta sobre una tabla, cargar esa consulta en una lista de diccionarios, ejecutar un pipeline de edición de datos con filter y map y luego insertar los datos editados en la tabla
+
+Ejercicio 1: Aplicar un descuento de 10% a los productos que tengan un stock mayor a 20
+Ejercicio 2: Marcar todos los pedidos pendientes como cancelados
+
+Parte 2: Código de la serie de Taylor para el seno y el coseno con lambda y reduce (se dan las sumatorias en sumatoria.png)
+entregar los archivos .py comprimidos en .zip
