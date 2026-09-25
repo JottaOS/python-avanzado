@@ -1,0 +1,11 @@
+Agregar al ejemplo de clase 7 subido al repositorio modelos para las tablas de proveedores, compras y detalles de compra, (agregar un atributo de id_proveedor a los productos).
+
+Ejecutar consultas (usando la sintaxis de sqlalchemy dentro del script de python) de:
+
+1- agregar una compra junto con sus detalles (recibiendo una lista de tuplas con (id_producto, cantidad) como en el ejemplo para las ventas) cargando correctamente el stock 
+
+2- total comprado por proveedor (con su nombre) ordenado de manera descendente (usar join, order by, group by)
+
+3- los 5 productos más vendidos (usar join, group by, order by, limit)
+
+Favor subir su código completo comprimido en formato .zip
