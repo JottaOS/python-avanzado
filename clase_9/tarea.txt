@@ -1,0 +1,65 @@
+Datos a cargar
+
+1) Datos del vehículo
+
+Marca (Dropdown)
+
+Modelo (TextField)
+
+Numero de Chasis (TextField)
+
+Año (TextField)
+
+Tipo de vehículo (RadioGroup)
+Auto
+Camioneta
+Camión
+
+2) Datos técnicos
+
+Color (TextField)
+
+Kilometraje (TextField)
+
+Combustible (Dropdown)
+
+Nafta
+Diésel
+Eléctrico
+Híbrido
+
+3) Datos administrativos
+
+Precio (TextField)
+
+Fecha de ingreso (DatePicker) (Investigar como usar selector de fecha, y poner como valor por defecto la fecha actual)
+
+Distribución
+
+Usar Column como contenedor principal.
+
+Dividir el formulario en 3 secciones, cada una dentro de un ResponsiveRow.
+
+En pantallas pequeñas cada campo ocupa 12 columnas.
+
+En pantallas medianas cada campo ocupa 6 columnas.
+
+Validaciones mínimas
+
+Marca no puede estar vacía.
+
+Modelo no puede estar vacío.
+
+Año debe ser numérico y mayor a 1900.
+
+Tipo de vehículo debe estar seleccionado.
+
+Precio debe ser numérico.
+
+Fecha de ingreso debe ser válida.
+
+Botones
+
+Guardar: Mostrar todos los datos en un AlertDialog.
+
+Limpiar: Restaurar todos los campos a su valor inicial.
